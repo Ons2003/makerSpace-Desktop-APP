@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="472.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.SecondController">
+   <children>
+      <Label fx:id="nameLabel" layoutX="326.0" layoutY="30.0" prefHeight="66.0" prefWidth="145.0" text="Label" textAlignment="CENTER" />
+      <ImageView fx:id="myImageView" fitHeight="256.0" fitWidth="462.0" layoutX="145.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/Media/image2.jpg" />
+         </image></ImageView>
+      <Button fx:id="myButton" layoutX="347.0" layoutY="359.0" mnemonicParsing="false" onAction="#displayImage" text="Button" />
+   </children>
+</AnchorPane>
