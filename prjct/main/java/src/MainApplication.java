@@ -6,8 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import java.sql.Connection ;
+import java.sql.DriverManager;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 
 public class MainApplication extends Application {
@@ -34,7 +38,10 @@ public class MainApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+        DataBaseConnection db = new DataBaseConnection();
+        db.insertRecord();
         launch();
+
     }
 }
