@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="OriginalAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="396.0" prefWidth="600.0" styleClass="verticalAnchor" stylesheets="@SignupinStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ya.LogInController">
+   <children>
+      <AnchorPane layoutX="215.0" layoutY="-3.0" prefHeight="409.0" prefWidth="388.0" styleClass="rightAnchor" stylesheets="@app.css">
+         <children>
+            <PasswordField fx:id="PasswordTextField" layoutX="67.0" layoutY="223.0" prefHeight="30.0" prefWidth="184.0" />
+            <TextField fx:id="UsernameTextField" layoutX="68.0" layoutY="124.0" prefHeight="29.0" prefWidth="184.0" />
+            <Label fx:id="UsernameLabel" layoutX="66.0" layoutY="75.0" prefHeight="31.0" prefWidth="94.0" text="Username" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="PasswordLabel" layoutX="65.0" layoutY="184.0" text="Password" textFill="#f8f8f8">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="loginButton" layoutX="264.0" layoutY="291.0" mnemonicParsing="false" onAction="#login" prefHeight="38.0" prefWidth="85.0" text="Login" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="32.0" layoutY="249.0" prefHeight="98.0" prefWidth="138.0" text="MakerSpace Manager" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="119.0" prefHeight="52.0" prefWidth="94.0" text="Login" wrapText="true">
+         <font>
+            <Font name="Bodoni MT Black" size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="339.0" text="Don't have an account?" textFill="#0015ff" />
+      <Button fx:id="SignUpButton" layoutX="58.0" layoutY="363.0" mnemonicParsing="false" onAction="#signUp" prefHeight="25.0" prefWidth="65.0" text="Sign Up" textFill="#2200ff" />
+   </children>
+</AnchorPane>
