@@ -2,21 +2,21 @@ package src;
 
 public class Item {
 
-    private Status status ;
+    private String status ;
     private String name ;
     private String category ;
     private String reference ;
     private int quantity ;
 
     public Item(){
-        this.status = status.AVAILABLE ;
+        this.status = "AVAILABLE" ;
         this.name = "";
         this.category ="";
         this.reference = "";
         this.quantity = 0 ;
     }
 
-    public Item(String name,String category,String reference,int quantity,Status status){
+    public Item(String name,String category,String reference,int quantity,String status){
         this.status = status ;
         this.name = name ;
         this.category = category ;
@@ -24,7 +24,7 @@ public class Item {
         this.quantity = quantity ;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
@@ -44,7 +44,7 @@ public class Item {
         return quantity;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

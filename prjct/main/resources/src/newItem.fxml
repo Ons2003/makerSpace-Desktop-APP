@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.CreateNewItem">
+   <children>
+      <TextField fx:id="nameField" layoutX="226.0" layoutY="117.0" />
+      <TextField fx:id="referenceField" layoutX="226.0" layoutY="168.0" />
+      <Label layoutX="168.0" layoutY="121.0" text="Name" />
+      <Label layoutX="158.0" layoutY="172.0" text="Reference" />
+      <ChoiceBox fx:id="categoryBox" layoutX="226.0" layoutY="220.0" prefWidth="150.0" />
+      <Label layoutX="160.0" layoutY="224.0" text="Category" />
+      <Spinner fx:id="quantitySpinner" layoutX="258.0" layoutY="270.0" prefHeight="26.0" prefWidth="85.0" />
+      <Label layoutX="161.0" layoutY="274.0" text="Quantity" />
+      <Label layoutX="231.0" layoutY="37.0" text="NEW ITEM">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="doneButton" layoutX="274.0" layoutY="334.0" mnemonicParsing="false" onAction="#validateNewItem" text="DONE" />
+   </children>
+</AnchorPane>
