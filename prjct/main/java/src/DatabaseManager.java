@@ -28,6 +28,7 @@ import java.sql.* ;
 public class DatabaseManager implements Initializable {
 
         DatabaseConnection connect = new DatabaseConnection();
+
         @FXML
         private TableView<src.Item> tableView;
         @FXML

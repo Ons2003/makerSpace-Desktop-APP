@@ -6,4 +6,6 @@ module com.example.demo {
 
     opens src to javafx.fxml;
     exports src;
+    opens Client to javafx.fxml;
+    exports Client ;
 }

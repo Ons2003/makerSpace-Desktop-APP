@@ -53,6 +53,7 @@ public class CreateNewItem  implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         categoryBox.getItems().addAll(categories) ;
+
         SpinnerValueFactory<Integer> valueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1,1000);
         valueFactory.setValue(1);

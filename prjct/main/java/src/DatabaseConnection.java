@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.* ;
 
 public class DatabaseConnection {
-    Connection connection ;
+    public Connection connection ;
     private static final String databaseName = "makerspace";
     private static final String databaseUser = "root";
     private static final String databasePass = "education";

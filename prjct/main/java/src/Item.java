@@ -8,6 +8,7 @@ public class Item {
     private String reference ;
     private int quantity ;
 
+
     public Item(){
         this.status = "AVAILABLE" ;
         this.name = "";

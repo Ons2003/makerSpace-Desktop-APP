@@ -24,9 +24,9 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Button fx:id="editButton" layoutX="234.0" layoutY="337.0" mnemonicParsing="false" onAction="#editItem" text="EDIT" />
-      <CheckBox fx:id="availableButton" layoutX="184.0" layoutY="300.0" mnemonicParsing="false" text="Available" />
-      <CheckBox fx:id="unavailableButton" layoutX="344.0" layoutY="300.0" mnemonicParsing="false" text="Unavailable" />
+      <Button fx:id="editButton" layoutX="249.0" layoutY="337.0" mnemonicParsing="false" onAction="#editItem" text="EDIT" />
+      <CheckBox fx:id="availableButton" layoutX="190.0" layoutY="291.0" mnemonicParsing="false" text="Available" />
+      <CheckBox fx:id="unavailableButton" layoutX="344.0" layoutY="291.0" mnemonicParsing="false" text="Unavailable" />
       <Button fx:id="deleteButton" layoutX="309.0" layoutY="337.0" mnemonicParsing="false" onAction="#deleteItem" text="DELETE" />
    </children>
 </AnchorPane>
