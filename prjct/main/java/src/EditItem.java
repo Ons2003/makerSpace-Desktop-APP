@@ -16,7 +16,10 @@ public class EditItem implements Initializable {
     private ChoiceBox<String> categoryBox;
 
     @FXML
-    private Button doneButton;
+    private Button editButton;
+
+    @FXML
+    private Button deleteButton ;
 
     @FXML
     private TextField nameField;
@@ -35,8 +38,9 @@ public class EditItem implements Initializable {
     private  String [] categories = {"accessory","actuator",
             "module","power","sensor"};
     private String itemName ;
+
     @FXML
-    void validateEditedItem(ActionEvent event) {
+    void editItem(ActionEvent event) {
         //save new information
         String name = nameField.getText() ;
         String ref = referenceField.getText();
@@ -62,9 +66,21 @@ public class EditItem implements Initializable {
             e.printStackTrace();
         }
     }
+    public void deleteItem(ActionEvent event) {
+        DatabaseConnection connect = new DatabaseConnection();
+        connect.connect();
+        try {
+            Statement pst = connect.connection.createStatement();
+            pst.executeUpdate(" DELETE FROM components WHERE name = '"+itemName+"';");
+            ((Node)(event.getSource())).getScene().getWindow().hide();
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public void setInformation(String name, String reference, String category,String status ,int quantity){
         itemName = name ;
+
         nameField.setText(name);
         referenceField.setText(reference);
         categoryBox.setValue(category);
