@@ -32,8 +32,8 @@ public class Core extends Application {
         System.out.println(fxmlLoader.getLocation());
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(getClass().getResource("GlobalStyle.css").toExternalForm());
-        stage.setScene(scene);
-        stage.show();
+        mainStage.setScene(scene);
+        mainStage.show();
 
         ///EXPERIMENTATION
         Utility.loginUser("everyone", "understands");

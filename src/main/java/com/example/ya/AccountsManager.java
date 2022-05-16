@@ -55,7 +55,7 @@ public abstract class AccountsManager {
         }else if(accessPermission == AccessPermission.Professor){
             return 2;
         }else if(accessPermission == AccessPermission.SuperUserOnly){
-            return 3;
+            return 3; 
         }
 
         return -1;
