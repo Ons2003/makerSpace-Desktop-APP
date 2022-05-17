@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.JarURLConnection;
 
 public class Utility {
-    public static void signUpUser(String sid, String password, String FirstName, String LastName){
+    public static void signUpUser(String sid, String password, String FirstName, String LastName, String email, String phoneNum){
         PreparedStatement psInsert = null;
         PreparedStatement psCheckUserExists = null;
         ResultSet resultSet = null;
@@ -28,11 +28,13 @@ public class Utility {
             if (resultSet.isBeforeFirst()){ // checks if result set is empty: will returns true if username is already taken and false if its empty
                 DisplayAlert();
             }else{
-                psInsert = DatabaseManager.connection.prepareStatement("INSERT INTO accounts (SID, Password, First, Last) VALUES (?, ?, ?, ?)");
+                psInsert = DatabaseManager.connection.prepareStatement("INSERT INTO accounts (SID, Password, Email, NumTel, First, Last) VALUES (?, ?, ?, ?, ?, ?)");
                 psInsert.setString(1, sid);
                 psInsert.setString(2, password);
-                psInsert.setString(3, FirstName);
-                psInsert.setString(4, LastName);
+                psInsert.setString(3, email);
+                psInsert.setString(4, phoneNum);
+                psInsert.setString(5, FirstName);
+                psInsert.setString(6, LastName);
                 psInsert.executeUpdate(); //update the database without returning anything
 
                 //changeScene(event, fxmlFile, "Welcome", username, FirstName, LastName);
@@ -81,7 +83,7 @@ public class Utility {
                         String retrievePassword = resultSet.getString("password");
                         if (retrievePassword.equals(password)) {
                             AccountsManager.loggedAccount = DatabaseManager.GetAccountOfSID(SID);
-                            Core.changeScene("Home.fxml", "Maker Menu");
+                            Core.changeScene("HomeSuperUser.fxml", "Maker Menu");
                         } else {
                             DisplayAlert();
                         }

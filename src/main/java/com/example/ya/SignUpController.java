@@ -6,20 +6,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.w3c.dom.events.UIEvent;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Objects;
 
-public class StylishController extends Utility{
+public class SignUpController extends Utility{
     public Text WarningAgeText;
     //sign up page
 
@@ -49,6 +45,10 @@ public class StylishController extends Utility{
     TextField UsernameTextField;
     @FXML
     PasswordField PasswordField1;
+    @FXML
+    TextField EmailTextField;
+    @FXML
+    TextField PhoneNumberTextField;
 
     @FXML
     ImageView myImageView;
@@ -114,6 +114,8 @@ public class StylishController extends Utility{
     String LastName;
     String username;
     String password;
+    String email;
+    String phoneNum;
 
     boolean NamesVerified = false;
     boolean UsernameVerified = false;
@@ -230,11 +232,14 @@ public class StylishController extends Utility{
         LastName = LastNameTextField.getText();
         username = UsernameTextField.getText();
         password = PasswordField1.getText();
+        email = EmailTextField.getText();
+        phoneNum = PhoneNumberTextField.getText();
+
 
        // if (checkCredentials() == 0) {
-                if (!username.trim().isEmpty() && !password.trim().isEmpty() && !FirstName.trim().isEmpty() && !LastName.trim().isEmpty()){
-                    signUpUser(username, password, FirstName, LastName);
-                    root = FXMLLoader.load(getClass().getResource("MenuBar.fxml"));
+                if (!username.trim().isEmpty() && !password.trim().isEmpty() && !FirstName.trim().isEmpty() && !LastName.trim().isEmpty() && !email.trim().isEmpty() && !phoneNum.trim().isEmpty()){
+                    signUpUser(username, password, FirstName, LastName, email, phoneNum);
+                    root = FXMLLoader.load(getClass().getResource("LOGINMaker.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);

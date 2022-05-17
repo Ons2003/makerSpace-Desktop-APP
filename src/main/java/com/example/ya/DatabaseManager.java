@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseManager {
-    public static String url = "jdbc:mysql://localhost:3306/makespacedb";
+    public static String url = "jdbc:mysql://localhost:3306/makerschema";
     private String username = "root";
-    private String password = "@1230X456ha";
+    private String password = "Chebil03";
     public static Connection connection;
 
     public void Initialize() {

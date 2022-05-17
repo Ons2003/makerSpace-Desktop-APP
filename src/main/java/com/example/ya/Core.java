@@ -28,7 +28,7 @@ public class Core extends Application {
         mainStage.setMaximized(true);
 
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Timeline.fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LOGINMaker.fxml"));
         System.out.println(fxmlLoader.getLocation());
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(getClass().getResource("GlobalStyle.css").toExternalForm());

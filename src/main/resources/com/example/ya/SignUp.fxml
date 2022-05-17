@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0" stylesheets="@MakerSpaceStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ya.SignUpController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #D7861A;" styleClass="middleAnchor" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="FirstNameLabel" layoutX="352.0" layoutY="152.0" text="First Name" textFill="WHITE" />
+            <Label fx:id="LastNameLabel" layoutX="350.0" layoutY="220.0" text="Last Name" textFill="WHITE" />
+            <Label fx:id="UsernameLabel" layoutX="606.0" layoutY="225.0" text="Username" textFill="WHITE" />
+            <Label fx:id="PasswordLabel" layoutX="602.0" layoutY="277.0" prefHeight="51.0" prefWidth="122.0" text="Password" textFill="WHITE" />
+            <TextField fx:id="FirstNameTextField" layoutX="345.0" layoutY="177.0" />
+            <TextField fx:id="LastNameTextField" layoutX="347.0" layoutY="243.0" />
+            <TextField fx:id="UsernameTextField" layoutX="603.0" layoutY="253.0" />
+            <Button fx:id="ConfirmButton" alignment="CENTER" layoutX="884.0" layoutY="392.0" mnemonicParsing="false" onAction="#confirm" prefHeight="33.0" prefWidth="82.0" styleClass="Button" text="Sign Up" />
+            <Text fx:id="WarningNamesText" fill="RED" layoutX="574.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.873046875" />
+            <Text fx:id="WarningUsernameText" fill="RED" layoutX="805.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.873046875" />
+            <Text fx:id="WarningPasswordText" fill="RED" layoutX="816.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.873046875" />
+            <PasswordField fx:id="PasswordField1" layoutX="600.0" layoutY="323.0" />
+            <Label layoutX="345.0" layoutY="348.0" text="Email" textFill="WHITE" />
+            <Label layoutX="343.0" layoutY="283.0" text="Phone Number" textFill="WHITE" />
+            <TextField fx:id="EmailTextField" layoutX="347.0" layoutY="374.0" />
+            <TextField fx:id="PhoneNumberTextField" layoutX="348.0" layoutY="308.0" />
+            <Label layoutX="299.0" layoutY="29.0" style="-fx-border-color: #ffffff;" text="Create Your Maker Profile" textFill="WHITE">
+               <font>
+                  <Font size="54.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="surroundingAnchors" BorderPane.alignment="CENTER" />
+   </right>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="surroundingAnchors" BorderPane.alignment="CENTER" />
+   </left>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="surroundingAnchors" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="surroundingAnchors" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="69.0" styleClass="yellowButton" text="Back" translateX="20.0" translateY="20.0" />
+         </children></HBox>
+   </top>
+</BorderPane>

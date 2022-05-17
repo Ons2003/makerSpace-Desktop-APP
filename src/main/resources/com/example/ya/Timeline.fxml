@@ -109,7 +109,7 @@
    <top>
       <AnchorPane prefHeight="43.0" prefWidth="1070.0" style="-fx-background-color: #1C1C1C;">
          <children>
-            <Button focusTraversable="false" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#OpenHome" style="-fx-background-color: #fff045;" text="Home" />
+            <Button fx:id="goHomeButton" focusTraversable="false" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#goToHome" style="-fx-background-color: #fff045;" text="Home" />
          </children>
       </AnchorPane>
    </top>

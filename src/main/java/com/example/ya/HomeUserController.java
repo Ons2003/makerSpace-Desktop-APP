@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomeController {
+public class HomeUserController {
 @FXML
     private Button LogoutButton;
 @FXML
@@ -24,7 +24,7 @@ public class HomeController {
     private Button ProfileButton;
 
     public void goToProfileButton(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("ProfilePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ProfilePage1.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("Account Profile");
         stage.setScene(new Scene(root));
@@ -37,7 +37,7 @@ public class HomeController {
     }
 
     public void logout(ActionEvent event) throws IOException {
-        Core.changeScene("SignUpIn.fxml", "LogIn");
+        Core.changeScene("LOGINMaker.fxml", "LogIn");
 
     }
 

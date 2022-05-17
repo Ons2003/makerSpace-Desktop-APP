@@ -2,13 +2,10 @@ package com.example.ya;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,7 +19,7 @@ public class MenuBarController {
         Label WelcomeLabel;
 
        LogInController lc = new LogInController();
-       StylishController sc = new StylishController();
+       SignUpController sc = new SignUpController();
 
         public void logout(ActionEvent event) throws IOException {
             lc.switchToLoginScene(event);

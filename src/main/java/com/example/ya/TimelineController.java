@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -44,6 +46,8 @@ public class TimelineController implements TimeEventPanel.ITimeEventListener {
     public AnchorPane eventDisplayAPane;
     @FXML
     public Button loggedAccountName_button;
+    @FXML
+    public Button goHomeButton;
     @FXML
     public Label loggedAccountName_Label;
     ///endregion
@@ -224,6 +228,14 @@ public class TimelineController implements TimeEventPanel.ITimeEventListener {
         eventDescription_label.setText(timeEvent.description);
 
         eventDisplayAPane.setVisible(true);
+    }
+
+    public void goToHome(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("HomeUser.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("Account Profile");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @Override

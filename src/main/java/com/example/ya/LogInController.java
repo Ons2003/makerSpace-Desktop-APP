@@ -29,7 +29,7 @@ public class LogInController extends Utility{
     private PasswordField PasswordTextField;
 
     public void switchToLoginScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("SignUpIn.fxml"));
+        root = FXMLLoader.load(getClass().getResource("LOGINMaker.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -37,7 +37,7 @@ public class LogInController extends Utility{
     }
 
     public void switchToMenu(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+        root = FXMLLoader.load(getClass().getResource("HomeSuperUser.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -45,7 +45,7 @@ public class LogInController extends Utility{
     }
 
     public void switchToSignUp(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Stylish.fxml"));
+        root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -62,7 +62,7 @@ public class LogInController extends Utility{
     }
 
     public void signUp(){
-        Core.changeScene("Stylish.fxml", "Sign Up");
+        Core.changeScene("SignUp.fxml", "Sign Up");
         //switchToSignUp(event);
     }
 

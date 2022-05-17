@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1362.0" stylesheets="@MakerSpaceStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ya.ProfilePageController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="middleAnchor" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="RightAnchor" layoutX="552.0" layoutY="18.0" prefHeight="500.0" prefWidth="425.0">
+               <children>
+                  <TextField fx:id="PhoneNumberTextField" layoutX="168.0" layoutY="321.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </TextField>
+                  <Label layoutX="62.0" layoutY="325.0" prefHeight="17.0" prefWidth="90.0" text="Phone Number" textFill="#fff9f9" />
+                  <Label layoutX="26.0" layoutY="137.0" prefHeight="17.0" prefWidth="73.0" text="First Name" textFill="#fff9f9" translateX="30.0" />
+                  <TextField fx:id="FirstNameTextField" layoutX="149.0" layoutY="133.0" translateX="30.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </TextField>
+                  <Label layoutX="26.0" layoutY="187.0" prefHeight="17.0" prefWidth="73.0" text="Last Name" textFill="#fff7f7" translateX="30.0" />
+                  <TextField fx:id="LastNameTextField" layoutX="149.0" layoutY="183.0" translateX="30.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </TextField>
+                  <Button fx:id="SaveChangesButton" layoutX="299.0" layoutY="435.0" mnemonicParsing="false" onAction="#saveChanges" styleClass="Button" text="Save Changes" />
+                  <Label layoutX="25.0" layoutY="55.0" text="Profile Information" textFill="#fffefe">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="251.0" text="Contact Information" textFill="#fffefe">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="379.0" prefHeight="17.0" prefWidth="81.0" text="Email Address" textFill="#fff7f7" />
+                  <TextField fx:id="EmailTextField" layoutX="168.0" layoutY="375.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </TextField>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="399.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@checkmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="20.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@phoneNb.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="20.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@email.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="LeftAnchor" layoutX="2.0" layoutY="-6.0" prefHeight="514.0" prefWidth="372.0" stylesheets="@MakerSpaceStyle.css">
+               <children>
+                  <ImageView fx:id="profilePicture" fitHeight="120.0" fitWidth="125.0" layoutX="106.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@unknown%20profile%20pic.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <VBox layoutX="51.0" layoutY="274.0" prefHeight="134.0" prefWidth="254.0">
+                     <children>
+                        <HBox prefHeight="61.0" prefWidth="254.0">
+                           <children>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" translateX="15.0" translateY="15.0">
+                                 <image>
+                                    <Image url="@profile.png" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="ProfileInformationButton" mnemonicParsing="false" onAction="#goToProfileInfo" prefHeight="36.0" prefWidth="175.0" styleClass="Button" text="Profile information" translateX="40.0" translateY="10.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="61.0" prefWidth="254.0">
+                           <children>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" translateX="15.0" translateY="15.0">
+                                 <image>
+                                    <Image url="@privacy.png" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="ConfidentialInfoButton" mnemonicParsing="false" onAction="#goToChangePassword" prefHeight="36.0" prefWidth="175.0" styleClass="Button" text="Confidential Information" translateX="40.0" translateY="10.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Label fx:id="UserSIDLabel" alignment="CENTER" layoutX="96.0" layoutY="170.0" prefHeight="17.0" prefWidth="127.0" text="UserID" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="surroundingAnchors" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="surroundingAnchors" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="surroundingAnchors" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="surroundingAnchors" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="goHomeButton" mnemonicParsing="false" onAction="#goToHome" prefHeight="37.0" prefWidth="70.0" styleClass="yellowButton" text="Home" translateX="20.0" translateY="20.0" />
+         </children></HBox>
+   </top>
+</BorderPane>

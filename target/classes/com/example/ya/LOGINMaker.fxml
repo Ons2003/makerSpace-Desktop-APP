@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ya.LogInController">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="surroundingAnchors" stylesheets="@MakerSpaceStyle.css" BorderPane.alignment="CENTER" />
+   </left>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="surroundingAnchors" stylesheets="@MakerSpaceStyle.css" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="surroundingAnchors" stylesheets="@MakerSpaceStyle.css" BorderPane.alignment="CENTER" />
+   </top>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="surroundingAnchors" stylesheets="@MakerSpaceStyle.css" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="middleAnchor" stylesheets="@MakerSpaceStyle.css" BorderPane.alignment="CENTER">
+         <children>
+            <PasswordField fx:id="PasswordTextField" layoutX="641.0" layoutY="287.0" prefHeight="30.0" prefWidth="205.0" promptText="enter password" style="-fx-background-radius: 12px;" />
+            <TextField fx:id="UsernameTextField" layoutX="642.0" layoutY="208.0" prefHeight="29.0" prefWidth="204.0" promptText="enter username" style="-fx-background-radius: 12px;" />
+            <Label fx:id="UsernameLabel" layoutX="647.0" layoutY="177.0" prefHeight="31.0" prefWidth="94.0" text="Username" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="PasswordLabel" layoutX="642.0" layoutY="257.0" prefHeight="30.0" prefWidth="104.0" text="Password" textFill="#f8f8f8">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="loginButton" layoutX="824.0" layoutY="364.0" mnemonicParsing="false" onAction="#login" prefHeight="38.0" prefWidth="85.0" styleClass="Button" stylesheets="@MakerSpaceStyle.css" text="Login" textFill="WHITE" />
+            <ImageView fitHeight="297.0" fitWidth="276.0" layoutX="313.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 12px;" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="629.2857208251953">
+               <image>
+                  <Image url="@Photo1.jpg" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="669.0" layoutY="104.0" prefHeight="51.0" prefWidth="136.0" style="-fx-border-color: #d7861a;" text="LOGIN" textFill="#c39108">
+               <font>
+                  <Font name="Bodoni MT Black" size="29.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="317.0" layoutY="406.0" prefHeight="17.0" prefWidth="158.0" text="Don't have an account?" textFill="WHITE" />
+            <Button fx:id="SignUpButton" layoutX="475.0" layoutY="402.0" mnemonicParsing="false" onAction="#signUp" styleClass="Button" stylesheets="@MakerSpaceStyle.css" text="Sign Up" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
