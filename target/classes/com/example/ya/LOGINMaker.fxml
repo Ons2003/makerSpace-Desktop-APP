@@ -28,31 +28,36 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="middleAnchor" stylesheets="@MakerSpaceStyle.css" BorderPane.alignment="CENTER">
          <children>
-            <PasswordField fx:id="PasswordTextField" layoutX="641.0" layoutY="287.0" prefHeight="30.0" prefWidth="205.0" promptText="enter password" style="-fx-background-radius: 12px;" />
-            <TextField fx:id="UsernameTextField" layoutX="642.0" layoutY="208.0" prefHeight="29.0" prefWidth="204.0" promptText="enter username" style="-fx-background-radius: 12px;" />
-            <Label fx:id="UsernameLabel" layoutX="647.0" layoutY="177.0" prefHeight="31.0" prefWidth="94.0" text="Username" textFill="WHITE">
+            <PasswordField fx:id="PasswordTextField" layoutX="457.0" layoutY="284.0" prefHeight="30.0" prefWidth="205.0" promptText="enter password" style="-fx-background-radius: 12px;" />
+            <TextField fx:id="UsernameTextField" layoutX="458.0" layoutY="205.0" prefHeight="29.0" prefWidth="204.0" promptText="enter username" style="-fx-background-radius: 12px;" />
+            <Label fx:id="UsernameLabel" layoutX="463.0" layoutY="174.0" prefHeight="31.0" prefWidth="94.0" text="Username" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="PasswordLabel" layoutX="642.0" layoutY="257.0" prefHeight="30.0" prefWidth="104.0" text="Password" textFill="#f8f8f8">
+            <Label fx:id="PasswordLabel" layoutX="458.0" layoutY="254.0" prefHeight="30.0" prefWidth="104.0" text="Password" textFill="#f8f8f8">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button fx:id="loginButton" layoutX="824.0" layoutY="364.0" mnemonicParsing="false" onAction="#login" prefHeight="38.0" prefWidth="85.0" styleClass="Button" stylesheets="@MakerSpaceStyle.css" text="Login" textFill="WHITE" />
-            <ImageView fitHeight="297.0" fitWidth="276.0" layoutX="313.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 12px;" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="629.2857208251953">
+            <Button fx:id="loginButton" layoutX="516.0" layoutY="361.0" mnemonicParsing="false" onAction="#login" prefHeight="38.0" prefWidth="85.0" styleClass="Button" stylesheets="@MakerSpaceStyle.css" text="Login" textFill="WHITE" />
+            <ImageView fitHeight="350.0" fitWidth="282.0" layoutX="772.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 12px;" AnchorPane.leftAnchor="772.0" AnchorPane.rightAnchor="130.3636474609375">
                <image>
                   <Image url="@Photo1.jpg" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="669.0" layoutY="104.0" prefHeight="51.0" prefWidth="136.0" style="-fx-border-color: #d7861a;" text="LOGIN" textFill="#c39108">
+            <Label alignment="CENTER" layoutX="485.0" layoutY="101.0" prefHeight="51.0" prefWidth="136.0" style="-fx-border-color: #d7861a;" text="LOGIN" textFill="#c39108">
                <font>
                   <Font name="Bodoni MT Black" size="29.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="317.0" layoutY="406.0" prefHeight="17.0" prefWidth="158.0" text="Don't have an account?" textFill="WHITE" />
-            <Button fx:id="SignUpButton" layoutX="475.0" layoutY="402.0" mnemonicParsing="false" onAction="#signUp" styleClass="Button" stylesheets="@MakerSpaceStyle.css" text="Sign Up" />
+            <Label alignment="CENTER" layoutX="165.0" layoutY="408.0" prefHeight="17.0" prefWidth="158.0" text="Don't have an account?" textFill="WHITE" />
+            <Button fx:id="SignUpButton" layoutX="323.0" layoutY="404.0" mnemonicParsing="false" onAction="#signUp" styleClass="Button" stylesheets="@MakerSpaceStyle.css" text="Sign Up" />
+            <ImageView fitHeight="252.0" fitWidth="342.0" layoutX="150.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@DanceBot-3-LG.gif" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>

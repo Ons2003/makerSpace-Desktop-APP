@@ -3,17 +3,23 @@ package com.example.ya;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LogInController extends Utility{
+public class LogInController extends Utility {
 
     private Stage stage;
     private Parent root;
@@ -27,6 +33,7 @@ public class LogInController extends Utility{
     private TextField UsernameTextField;
 @FXML
     private PasswordField PasswordTextField;
+
 
     public void switchToLoginScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("LOGINMaker.fxml"));

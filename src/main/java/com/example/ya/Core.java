@@ -36,7 +36,7 @@ public class Core extends Application {
         mainStage.show();
 
         ///EXPERIMENTATION
-        Utility.loginUser("everyone", "understands");
+        //Utility.loginUser("everyone", "understands");
         ///END OF EXPERIMENTATION
 
         System.out.println("Most Epic App has been Launched");

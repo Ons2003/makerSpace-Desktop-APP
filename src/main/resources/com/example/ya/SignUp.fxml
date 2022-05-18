@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -22,7 +24,7 @@
             <TextField fx:id="FirstNameTextField" layoutX="345.0" layoutY="177.0" />
             <TextField fx:id="LastNameTextField" layoutX="347.0" layoutY="243.0" />
             <TextField fx:id="UsernameTextField" layoutX="603.0" layoutY="253.0" />
-            <Button fx:id="ConfirmButton" alignment="CENTER" layoutX="884.0" layoutY="392.0" mnemonicParsing="false" onAction="#confirm" prefHeight="33.0" prefWidth="82.0" styleClass="Button" text="Sign Up" />
+            <Button fx:id="ConfirmButton" alignment="CENTER" layoutX="805.0" layoutY="406.0" mnemonicParsing="false" onAction="#confirm" prefHeight="33.0" prefWidth="82.0" styleClass="Button" text="Sign Up" />
             <Text fx:id="WarningNamesText" fill="RED" layoutX="574.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.873046875" />
             <Text fx:id="WarningUsernameText" fill="RED" layoutX="805.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.873046875" />
             <Text fx:id="WarningPasswordText" fill="RED" layoutX="816.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.873046875" />
@@ -31,11 +33,39 @@
             <Label layoutX="343.0" layoutY="283.0" text="Phone Number" textFill="WHITE" />
             <TextField fx:id="EmailTextField" layoutX="347.0" layoutY="374.0" />
             <TextField fx:id="PhoneNumberTextField" layoutX="348.0" layoutY="308.0" />
-            <Label layoutX="299.0" layoutY="29.0" style="-fx-border-color: #ffffff;" text="Create Your Maker Profile" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="201.0" layoutY="29.0" prefHeight="82.0" prefWidth="768.0" style="-fx-border-color: #ffffff;" text="Create Your Maker Profile" textFill="WHITE">
                <font>
                   <Font size="54.0" />
                </font>
             </Label>
+            <VBox layoutX="30.0" layoutY="29.0" prefHeight="442.0" prefWidth="174.0">
+               <children>
+                  <ImageView fitHeight="220.0" fitWidth="265.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Makerphotos2/20220316_140158.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="222.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: #ffffff;">
+                     <image>
+                        <Image url="@Makerphotos2/20220316_140203.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox layoutX="975.0" layoutY="33.0" prefHeight="442.0" prefWidth="174.0">
+               <children>
+                  <ImageView fitHeight="220.0" fitWidth="265.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Makerphotos2/20220316_140158.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="222.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Makerphotos2/20220316_140203.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
    </center>
@@ -51,7 +81,7 @@
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" styleClass="surroundingAnchors" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="69.0" styleClass="yellowButton" text="Back" translateX="20.0" translateY="20.0" />
+            <Button fx:id="BackButton" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="35.0" prefWidth="69.0" styleClass="yellowButton" text="Back" translateX="20.0" translateY="20.0" />
          </children></HBox>
    </top>
 </BorderPane>

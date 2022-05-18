@@ -29,6 +29,8 @@ public class SignUpController extends Utility{
     Label PasswordLabel;
 
     @FXML
+    Button BackButton;
+    @FXML
     Button ConfirmButton;
     @FXML
     Text WarningNamesText;
@@ -127,15 +129,13 @@ public class SignUpController extends Utility{
     private Parent root;
 
 
-    /*public void switchToMenu(ActionEvent event) throws IOException {
-        MenuBarController mc = new MenuBarController();
-        root = FXMLLoader.load(getClass().getResource("MenuBar.fxml"));
+    public void switchToMenu(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("LOGINMaker.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        mc.setWelcomeLabel(FirstName, LastName);
         stage.show();
-    }*/
+    }
 
 /*
     public int checkCredentials() throws IOException {
