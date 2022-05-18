@@ -21,7 +21,7 @@ public class MainApplication extends Application {
 
         Scene scene = new Scene(root);
         //link styling sheet
-        //String css = this.getClass().getResource("style.css").toExternalForm();
+        //String css = this.getClass().getResource("MakerSpaceStyle.css").toExternalForm();
         //scene.getStylesheets().add(css);
 
         Image icon = new Image(String.valueOf(getClass().getResource("c1.png")));

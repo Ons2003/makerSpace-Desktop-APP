@@ -12,9 +12,14 @@ import java.sql.SQLException;
 
 public class HelloApplication extends Application {
     public static final int MAX_QUANTITY = 100 ;
+    public static final String  USER_ID = "2404060" ;
+    public static final String  NAME = "Ons" ;
+
+    public static final Account.UserRole ROLE = Account.UserRole.Student  ;
+    public static Account account = new Account(NAME,USER_ID,ROLE);
+
     @Override
     public void start(Stage stage) throws IOException {
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("main-view.fxml")) ;
         Parent clientRoot = loader.load() ;
         Scene scene = new Scene(clientRoot);

@@ -10,8 +10,7 @@ import javafx.scene.control.SpinnerValueFactory;
 
 public class selectQuantityController  {
 
-    @FXML
-    private Label errorLabel;
+
 
     @FXML
     private Spinner<Integer> quantitySpinner;
@@ -20,7 +19,7 @@ public class selectQuantityController  {
     private Boolean completed = false ;
 
     public void setInformation(ClientItem item){
-        errorLabel.setText(item.getName());
+
         SpinnerValueFactory<Integer> valueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1,item.getQuantity());
         valueFactory.setValue(1);

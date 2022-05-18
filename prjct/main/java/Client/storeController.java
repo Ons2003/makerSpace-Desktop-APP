@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -13,12 +14,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import src.DatabaseConnection;
 import src.EditItem;
 import src.Item;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.xml.transform.Result;
 import java.net.URL;
@@ -30,7 +33,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-
+import static Client.HelloApplication.account ;
 
 
 public class storeController implements Initializable {
@@ -38,14 +41,6 @@ public class storeController implements Initializable {
     DatabaseConnection connect = new DatabaseConnection();
     ArrayList<String> selectedItems = new ArrayList<String>();
 
-    @FXML
-    private ChoiceBox<String> filterBox;
-
-    @FXML
-    private TextField searchField;
-
-    @FXML
-    private CheckBox showAvailableCheckBox;
 
     @FXML
     private VBox vBox;
@@ -64,6 +59,7 @@ public class storeController implements Initializable {
 
     public void getAllComponents(ActionEvent event){
         selectionBox.getChildren().clear();
+
         try {
             PreparedStatement pst = connect.connection.prepareStatement("select status,name,category,reference,quantity from components");
             ResultSet rs = pst.executeQuery();
@@ -79,6 +75,9 @@ public class storeController implements Initializable {
                 itemBox.setMinHeight(100);
                 itemBox.setSpacing(20);
                 itemBox.alignmentProperty().setValue(Pos.BASELINE_LEFT);
+                itemBox.setStyle("-fx-padding: 10;"  +"-fx-border-style: solid ;"
+                        + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
+                        + "-fx-border-radius: 5;" + "-fx-border-color: black;");
 
                 ImageView icon = new ImageView("C:\\Users\\msi\\Documents\\MedTech\\demo\\prjct\\main\\resources\\Client\\c1.png");
                 icon.setPreserveRatio(true);
@@ -91,6 +90,7 @@ public class storeController implements Initializable {
 
                 Button selectButton = new Button("select");
                 selectButton.setId(it.getName());
+                selectButton.setStyle("-fx-background-color : #e7ed39;"+"-fx-font-weight:bold;"+"-fx-border-color:black;");
 
                 selectButton.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
@@ -100,6 +100,7 @@ public class storeController implements Initializable {
                 });
 
                 itemBox.getChildren().addAll(statusLabel,icon,nameLabel,referenceLabel,categoryLabel,quantityLabel,selectButton);
+                vBox.setStyle("-fx-padding: 10;" );
 
                 vBox.getChildren().add(itemBox) ;
             }
@@ -109,71 +110,82 @@ public class storeController implements Initializable {
         }
 
     }
+
     public void selectItem(ActionEvent event) {
-        Button btn = (Button) event.getSource();
-        ClientItem item = new ClientItem();
-        //1) get element info
-        try {
+        if(selectedItems.size()<5){
+            Button btn = (Button) event.getSource();
+            ClientItem item = new ClientItem();
+            //1) get element info
+            try {
 
-            PreparedStatement pst = connect.connection.prepareStatement("select status,name,category,reference,quantity from components " +
-                    "where name='"+btn.getId()+"' ;");
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()){
-                item.setName(rs.getString("name")) ;
-                item.setCategory(rs.getString("category"));
-                item.setReference(rs.getString("reference"));
-                item.setStatus(rs.getString("status"));
-                item.setQuantity( rs.getInt("quantity"));
+                PreparedStatement pst = connect.connection.prepareStatement("select status,name,category,reference,quantity from components " +
+                        "where name='"+btn.getId()+"' ;");
+                ResultSet rs = pst.executeQuery();
+                while (rs.next()){
+                    item.setName(rs.getString("name")) ;
+                    item.setCategory(rs.getString("category"));
+                    item.setReference(rs.getString("reference"));
+                    item.setStatus(rs.getString("status"));
+                    item.setQuantity( rs.getInt("quantity"));
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            //2)choose quantity
+            try{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("chooseQuantity.fxml")) ;
+                Parent root = (Parent) loader.load() ;
+                selectQuantityController controller = loader.getController();
+                controller.setInformation(item);
 
-        //2)choose quantity
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("chooseQuantity.fxml")) ;
-            Parent root = (Parent) loader.load() ;
-            selectQuantityController controller = loader.getController();
-            controller.setInformation(item);
+                Stage stage = new Stage();
+                Scene scene = new Scene(root) ;
+                stage.setScene(scene);
+                stage.showAndWait();
 
-            Stage stage = new Stage();
-            Scene scene = new Scene(root) ;
-            stage.setScene(scene);
-            stage.showAndWait();
+                if(controller.getCompleted()){
 
-            if(controller.getCompleted()){
+                    item.setSelectedQuantity(controller.getQuantity());
 
-                item.setSelectedQuantity(controller.getQuantity());
+                    //2)show selection
+                    HBox itemBox = new HBox() ;
+                    VBox list = new VBox() ;
 
-                //2)show selection
-                HBox itemBox = new HBox() ;
-                VBox list = new VBox() ;
+                    Label nameLabel = new Label(item.getName());
+                    Label quantityLabel = new Label("QUANTITY = "+ item.getSelectedQuantity());
+                    quantityLabel.alignmentProperty().setValue(Pos.CENTER);
+                    list.getChildren().addAll(nameLabel,quantityLabel);
 
-                Label nameLabel = new Label(item.getName());
-                Label quantityLabel = new Label("quantity = "+ item.getSelectedQuantity());
+                    itemBox.getChildren().add(list);
 
-                list.getChildren().addAll(nameLabel,quantityLabel);
+                    itemBox.setSpacing(5);
+                    itemBox.minWidth(90) ;
+                    itemBox.minHeight(15) ;
+                    itemBox.alignmentProperty().setValue(Pos.BASELINE_CENTER);
+                    itemBox.setStyle("-fx-padding: 10;" +"-fx-background-color: #e7ed39;" +"-fx-border-style: solid ;"
+                            + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
+                            + "-fx-border-radius: 5;" + "-fx-border-color: black;"+"");
+                    selectionBox.getChildren().add(itemBox) ;
+                    selectionBox.setSpacing(10);
+                    selectionBox.setAlignment(Pos.BASELINE_CENTER);
+                    selectionBox.minWidth(300);
+                    selectionBox.minHeight(500);
+                    selectedItems.add(item.getName()) ;
 
-                itemBox.getChildren().add(list);
+                }
 
-                itemBox.setSpacing(5);
-                itemBox.minWidth(100) ;
-                itemBox.minHeight(20) ;
-                itemBox.alignmentProperty().setValue(Pos.BASELINE_CENTER);
-
-                selectionBox.getChildren().add(itemBox) ;
-                selectionBox.setSpacing(10);
-                selectionBox.setAlignment(Pos.BASELINE_CENTER);
-                selectionBox.minWidth(300);
-                selectionBox.minHeight(500);
-                selectedItems.add(item.getName()) ;
+            }catch(Exception e){
+                e.printStackTrace();
             }
-
-        }catch(Exception e){
-            e.printStackTrace();
+        }else{
+            Label error = new Label("YOU CAN'T SELECT MORE THAN 5 ITEMS");
+            System.out.println("YOU CAN'T SELECT MORE THAN 5 ITEMS");
         }
+        
     }
+
     public String getSelectedItems(){
         final String[] out = {""};
         selectedItems.forEach((item)->{
@@ -181,11 +193,31 @@ public class storeController implements Initializable {
         });
         return out[0];
     }
+
     public void validateBooking(ActionEvent event){
         try {
             Statement pst = connect.connection.createStatement();
-            String ex = "UPDATE components SET status = 'UNAVAILABLE' WHERE name in ("+getSelectedItems()+"'none');";
-            System.out.println(ex);
+            String elements = getSelectedItems() ;
+            elements = elements.substring(0,elements.length()-1) ;
+            String ex = "UPDATE components SET status = 'UNAVAILABLE' WHERE name in ("+elements+");";
+            System.out.println(elements+selectedItems.size());
+            switch(selectedItems.size()){
+                case 1 :
+                    pst.executeUpdate("INSERT INTO bookings (userId,item1) VALUES ("+account.getSID()+","+elements+");");
+                    break;
+                case 2 :
+                    pst.executeUpdate("INSERT INTO bookings (userId,item1, item2) VALUES ("+account.getSID()+","+elements+");");
+                    break;
+                case 3 :
+                    pst.executeUpdate("INSERT INTO bookings (userId,item1, item2, item3) VALUES ("+account.getSID()+","+elements+");");
+                    break;
+                case 4 :
+                    pst.executeUpdate("INSERT INTO bookings (userId,item1, item2, item3, item4) VALUES ("+account.getSID()+","+elements+");");
+                    break;
+                case 5 :
+                    pst.executeUpdate("INSERT INTO bookings (userId,item1, item2, item3, item4, item5) VALUES ("+account.getSID()+","+elements+");");
+                    break;
+            }
             pst.executeUpdate(ex);
 
         } catch (SQLException e) {
@@ -196,8 +228,8 @@ public class storeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         connect.connect() ;
-        filterBox.getItems().addAll(filters);
+        vBox.setStyle("-fx-padding: 50;");
+        bookButton.setStyle("-fx-background-color : #e7ed39;"+"-fx-font-weight:bold;"+"-fx-border-color:black;");
         getAllComponents(new ActionEvent());
-
     }
 }

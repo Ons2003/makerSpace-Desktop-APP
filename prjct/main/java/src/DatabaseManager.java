@@ -1,5 +1,6 @@
 package src;
 
+import Client.Booking;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -10,15 +11,20 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.scene.control.TableColumn.CellEditEvent;
 
@@ -28,8 +34,9 @@ import java.sql.* ;
 public class DatabaseManager implements Initializable {
 
         DatabaseConnection connect = new DatabaseConnection();
+        ArrayList<Booking> bookings = new ArrayList<Booking>();
 
-        @FXML
+    @FXML
         private TableView<src.Item> tableView;
         @FXML
         private TableColumn<String, Item> statusColumn;
@@ -55,8 +62,27 @@ public class DatabaseManager implements Initializable {
         private CheckBox referenceCheckBox;
         @FXML
         private CheckBox categoryCheckBox;
+        @FXML
+        private Label approvalText ;
+        @FXML
+        private Button homeButton;
 
+        @FXML
+        private Button refreshButton;
 
+    @FXML
+    private VBox bookingView ;
+        public void approveBooking(ActionEvent event){
+            Button btn = (Button) event.getSource();
+            try {
+                Statement pst = connect.connection.createStatement();
+                pst.executeUpdate("UPDATE bookings SET state = 'CONFIRMED' WHERE id="+Integer.parseInt(btn.getId())+";");
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+           approvalText.setText("You approved a booking");
+        }
         public void newItem(ActionEvent actionEvent) throws IOException{
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("newItem.fxml")) ;
@@ -65,6 +91,70 @@ public class DatabaseManager implements Initializable {
             Scene scene = new Scene(root) ;
             stage.setScene(scene);
             stage.show();
+        }
+        public  void getBookings(){
+            bookings.clear();
+            PreparedStatement pst = null;
+            try {
+                pst = connect.connection.prepareStatement("select id,state,item1,item2,item3,item4,item5 from bookings");
+                ResultSet rs = pst.executeQuery();
+                while (rs.next()) {
+                    Booking booking = new Booking();
+
+                    booking.setId(rs.getInt("id"));
+                    booking.setState(rs.getString("state"));
+                    booking.setItem1(rs.getString("item1"));
+                    booking.setItem2(rs.getString("item2"));
+                    booking.setItem3(rs.getString("item3"));
+                    booking.setItem4(rs.getString("item4"));
+                    booking.setItem5(rs.getString("item5"));
+                    bookings.add(booking);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    public void showBookings() {
+
+        bookings.forEach((booking) -> {
+            HBox box = new HBox();
+            //
+            box.setSpacing(5);
+            box.minWidth(100);
+            box.minHeight(300);
+            box.alignmentProperty().setValue(Pos.BASELINE_CENTER);
+            box.setStyle("-fx-padding: 10;" +"-fx-background-color: #e7ed39;" +"-fx-border-style: solid ;"
+                    + "-fx-border-width: 2;" + "-fx-border-insets: 0;"
+                    + "-fx-border-radius: 5;" + "-fx-border-color: black;"+"");
+            //
+            Label id = new Label(String.valueOf(booking.getId())+"   |");
+            Label items = new Label(booking.getItem1() + " | "+ booking.getItem2() + " | " + booking.getItem3() + " | " + booking.getItem4() + " | " + booking.getItem5());
+            Label state = new Label(" | "+ booking.getState());
+            Button approveButton = new Button("APPROVE");
+            approveButton.setStyle("-fx-background-color : #e7ed39;"+"-fx-font-weight:bold;"+"-fx-border-color:black;");
+            id.setStyle("-fx-font-weight : bold;"	);
+            state.setStyle("-fx-font-weight : bold;");
+            approveButton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    approveBooking(event);
+                }
+            });
+            approveButton.setId(String.valueOf(booking.getId()));
+            box.getChildren().addAll(id, items, state);
+            if (booking.getState().equalsIgnoreCase("NOT CONFIRMED")){
+                box.getChildren().add(approveButton);
+            }
+            box.setAlignment(Pos.TOP_CENTER);
+            bookingView.getChildren().add(box) ;
+
+        });
+        }
+        public void refresh(ActionEvent event){
+            approvalText.setText("Managing bookings...");
+            bookingView.getChildren().clear();
+            getBookings();
+            showBookings();
         }
         public void showTable(ActionEvent event) throws  IOException {
             try {
@@ -92,6 +182,14 @@ public class DatabaseManager implements Initializable {
 
 
             connect.connect();
+            newItemButton.setStyle("-fx-background-color : #e7ed39;"+"-fx-font-weight:bold;"+"-fx-border-color:black;");
+            loadButton.setStyle("-fx-background-color : #e7ed39;"+"-fx-font-weight:bold;"+"-fx-border-color:black;");
+            homeButton.setStyle("-fx-background-color : #e7ed39;"+"-fx-font-weight:bold;"+"-fx-border-color:black;");
+            refreshButton.setStyle("-fx-background-color : #e7ed39;"+"-fx-font-weight:bold;"+"-fx-border-color:black;");
+            bookingView.setStyle("-fx-padding: 20;");
+            getBookings();
+            showBookings();
+
             ObservableList<Item> items = tableView.getItems();
             tableView.setEditable(true);
 

@@ -7,73 +7,78 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="679.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.mainViewController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="679.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.mainViewController">
    <top>
-      <HBox prefHeight="63.0" prefWidth="1070.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="57.0" prefWidth="1070.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="63.0" prefWidth="232.0">
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="362.0" style="-fx-background-color: #000;">
                <children>
-                  <Label prefHeight="46.0" prefWidth="101.0" text="home">
+                  <Button alignment="BASELINE_CENTER" mnemonicParsing="false" style="-fx-background-color: #e7ed39; -fx-border-color: black; -fx-font-weight: bold;" text="HOME" />
+               </children>
+            </HBox>
+            <HBox prefHeight="63.0" prefWidth="169.0" style="-fx-background-color: #000;">
+               <children>
+                  <Button fx:id="storeButton" mnemonicParsing="false" onAction="#switchToStore" prefHeight="47.0" prefWidth="160.0" text="Compnonents Store">
                      <HBox.margin>
-                        <Insets left="100.0" />
-                     </HBox.margin></Label>
+                        <Insets top="3.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
-            <HBox prefHeight="63.0" prefWidth="169.0">
+            <HBox prefHeight="63.0" prefWidth="183.0" style="-fx-background-color: #000;">
                <children>
-                  <Button fx:id="storeButton" mnemonicParsing="false" onAction="#switchToStore" prefHeight="87.0" prefWidth="182.0" text="Compnonents Store" />
+                  <Button fx:id="componentsBookingButton" mnemonicParsing="false" onAction="#switchToComponentsBooking" prefHeight="47.0" prefWidth="173.0" text="My Components Bookings">
+                     <HBox.margin>
+                        <Insets left="3.0" top="3.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
-            <HBox prefHeight="63.0" prefWidth="183.0">
+            <HBox alignment="BASELINE_CENTER" prefHeight="63.0" prefWidth="398.0" style="-fx-background-color: black;">
                <children>
-                  <Button fx:id="componentsBookingButton" mnemonicParsing="false" onAction="#switchToComponentsBooking" prefHeight="78.0" prefWidth="192.0" text="My Components Bookings" />
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="makerBookingButton" mnemonicParsing="false" onAction="#switchToMakerBooking" prefHeight="83.0" prefWidth="215.0" text="My Makerspace Booking" />
-               </children>
-            </HBox>
-            <HBox prefHeight="63.0" prefWidth="301.0">
-               <children>
-                  <Label text="username">
-                     <padding>
-                        <Insets left="100.0" />
-                     </padding></Label>
+                  <Label fx:id="usernameLabel" alignment="CENTER" prefHeight="58.0" prefWidth="141.0" style="-fx-background-color: #e7ed39; -fx-font-family: calibri; -fx-font-weight: bold; -fx-border-color: black; -fx-border-radius: 0; -fx-border-width: 2; -fx-border-insets: 0;" text="USERNAME" textAlignment="CENTER">
+                     <font>
+                        <Font size="23.0" />
+                     </font></Label>
                </children>
             </HBox>
          </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
       </HBox>
    </top>
-   <bottom>
-      <HBox prefHeight="38.0" prefWidth="1070.0" BorderPane.alignment="CENTER">
+   <left>
+      <VBox prefHeight="622.0" prefWidth="19.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <VBox prefHeight="723.0" prefWidth="1051.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="footer">
-               <HBox.margin>
-                  <Insets left="500.0" />
-               </HBox.margin>
-            </Label>
+            <HBox prefHeight="67.0" prefWidth="1051.0">
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="509.0" prefWidth="1051.0">
+               <children>
+                  <AnchorPane prefHeight="502.0" prefWidth="1051.0">
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin>
+                  </AnchorPane>
+               </children>
+            </HBox>
          </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="10.0" prefWidth="1070.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </HBox>
    </bottom>
-   <center>
-      <BorderPane fx:id="borderPane" prefHeight="500.0" prefWidth="900.0" BorderPane.alignment="CENTER">
-         <top>
-            <HBox prefHeight="37.0" prefWidth="1070.0" BorderPane.alignment="CENTER" />
-         </top>
-         <center>
-            <AnchorPane fx:id="view" prefHeight="538.0" prefWidth="1018.0" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets left="10.0" right="10.0" />
-               </BorderPane.margin></AnchorPane>
-         </center>
-         <bottom>
-            <HBox prefHeight="2.0" prefWidth="1070.0" BorderPane.alignment="CENTER" />
-         </bottom>
-         <right>
-            <VBox prefHeight="538.0" prefWidth="16.0" BorderPane.alignment="CENTER" />
-         </right>
-      </BorderPane>
-   </center>
 </BorderPane>
